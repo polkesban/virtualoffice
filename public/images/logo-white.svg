@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" role="img" aria-label="Logo Poltekkes Bandung">
+  <title>Poltekkes Bandung – Poltekkes Kemenkes Bandung</title>
+  <!-- Lambang kesehatan (palang putih) -->
+  <rect x="4" y="20" width="8" height="28" rx="2" fill="#ffffff"/>
+  <rect x="0" y="28" width="16" height="12" rx="2" fill="#ffffff"/>
+  <!-- Teks POLTEKKES BANDUNG -->
+  <text x="26" y="26" font-family="system-ui,-apple-system,sans-serif" font-weight="700" font-size="16" fill="#ffffff" letter-spacing="1">POLTEKKES BANDUNG</text>
+  <!-- Teks Poltekkes Kemenkes Bandung -->
+  <text x="26" y="44" font-family="system-ui,-apple-system,sans-serif" font-size="9" fill="#d1fae5">Poltekkes Kemenkes Bandung</text>
+</svg>

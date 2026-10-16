@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="silhouetteGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="togaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c4937"/>
+      <stop offset="100%" stop-color="#04271c"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="400" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle inner border -->
+  <rect x="8" y="8" width="284" height="384" rx="8" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  
+  <!-- Silhouette Head -->
+  <circle cx="150" cy="140" r="48" fill="url(#silhouetteGrad)"/>
+  
+  <!-- Graduation Cap (Toga) -->
+  <polygon points="150,55 225,92 150,118 75,92" fill="url(#togaGrad)"/>
+  <rect x="115" y="102" width="70" height="20" rx="3" fill="#04271c"/>
+  <!-- Tassel -->
+  <path d="M150,92 Q195,100 200,140" fill="none" stroke="#d7ab29" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="200" cy="142" r="4" fill="#c59419"/>
+
+  <!-- Torso & Robe -->
+  <path d="M70,360 C70,250 100,215 130,205 L150,225 L170,205 C200,215 230,250 230,360 Z" fill="url(#silhouetteGrad)"/>
+  <path d="M125,208 L150,240 L175,208 L160,360 L140,360 Z" fill="#d7ab29" opacity="0.9"/>
+  <polygon points="150,245 138,212 162,212" fill="#ffffff"/>
+</svg>

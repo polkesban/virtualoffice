@@ -1,0 +1,222 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode — toggle .dark on <html> via Alpine */
+@variant dark (&:where(.dark, .dark *));
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    /* Tipografi system-font-stack: tidak ada Google Fonts = 0 blocking request */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    /* Palet warna Poltekkes Bandung - disamakan dengan beta.poltekkesbandung.ac.id (Teal/Turquoise) */
+    --color-brand-50:  #e6fffd;
+    --color-brand-100: #ccfbf8;
+    --color-brand-200: #8bf2eb;
+    --color-brand-300: #4be3da;
+    --color-brand-400: #14d1c4;
+    --color-brand-500: #00b9ad;
+    --color-brand-600: #00a398;
+    --color-brand-700: #0f766e;
+    --color-brand-800: #0d6e67;
+    --color-brand-900: #003c3a;
+    --color-brand-950: #002524;
+
+    --color-accent-500: #cddc29;
+    --color-accent-600: #b4c41b;
+    --color-accent-700: #9bad13;
+}
+
+/* Base styles */
+@layer base {
+    html {
+        zoom: 80%;
+        min-height: 125vh;
+        height: 125vh;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        min-height: 125vh;
+    }
+
+    .h-screen {
+        height: 125vh !important;
+    }
+
+    .min-h-screen {
+        min-height: 125vh !important;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    img, video {
+        content-visibility: auto;
+    }
+}
+
+@layer components {
+    .polkesban-table-tools {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 12px 30px -22px rgba(15, 23, 42, 0.45);
+    }
+
+    .dark .polkesban-table-tools {
+        border-color: rgba(55, 65, 81, 0.9);
+        background: rgba(17, 24, 39, 0.94);
+        box-shadow: 0 12px 30px -22px rgba(2, 6, 23, 0.8);
+    }
+
+    .polkesban-table-tools__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .polkesban-table-tools__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        min-width: 0;
+    }
+
+    .polkesban-table-tools__label {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #4b5563;
+    }
+
+    .dark .polkesban-table-tools__label {
+        color: #d1d5db;
+    }
+
+    .polkesban-table-tools__control {
+        width: 100%;
+        min-width: 0;
+        border: 1px solid #d1d5db;
+        border-radius: 0.85rem;
+        background: #fff;
+        color: #111827;
+        padding: 0.68rem 0.9rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        outline: none;
+        transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+
+    .polkesban-table-tools__control:focus {
+        border-color: var(--color-brand-500);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-500) 18%, transparent);
+    }
+
+    .polkesban-table-tools__control:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
+        background: #f3f4f6;
+    }
+
+    .dark .polkesban-table-tools__control {
+        border-color: #374151;
+        background: #111827;
+        color: #f9fafb;
+    }
+
+    .dark .polkesban-table-tools__control:disabled {
+        background: #1f2937;
+    }
+
+    .polkesban-table-tools__footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+    }
+
+    .polkesban-table-tools__meta {
+        margin: 0;
+        font-size: 0.78rem;
+        color: #6b7280;
+    }
+
+    .dark .polkesban-table-tools__meta {
+        color: #9ca3af;
+    }
+
+    .polkesban-table-tools__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        border-radius: 9999px;
+        background: var(--color-brand-600);
+        color: #fff;
+        padding: 0.55rem 1rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .polkesban-table-tools__button:hover {
+        background: var(--color-brand-500);
+        transform: translateY(-1px);
+    }
+
+    .polkesban-table-tools__empty-row td {
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #6b7280;
+    }
+
+    .dark .polkesban-table-tools__empty-row td {
+        color: #9ca3af;
+    }
+
+    .tox.tox-tinymce {
+        width: 100% !important;
+        max-width: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .tox .tox-statusbar {
+        border-top-color: color-mix(in srgb, var(--color-brand-600) 25%, transparent);
+    }
+
+    .tox .tox-statusbar__resize-handle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 1.75rem;
+        color: var(--color-brand-600);
+        opacity: 1;
+        cursor: nwse-resize;
+    }
+
+    .tox .tox-statusbar__resize-handle svg {
+        width: 1rem;
+        height: 1rem;
+        transform: scale(1.15);
+    }
+}

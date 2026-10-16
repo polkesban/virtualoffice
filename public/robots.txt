@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /portal/
+Disallow: /_debugbar/
+
+Sitemap: https://polkesban.ac.id/sitemap.xml

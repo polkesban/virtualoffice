@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('evaluation_rubric_items', function (Blueprint $table): void {
+            $table->foreignId('parent_id')->nullable()->after('evaluation_rubric_id')->constrained('evaluation_rubric_items')->cascadeOnDelete();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('evaluation_rubric_items', function (Blueprint $table): void {
+            $table->dropForeign(['parent_id']);
+            $table->dropColumn('parent_id');
+        });
+    }
+};
